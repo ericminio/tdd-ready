@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+let fetchMessage = async function() {
+    const response = await fetch('/hello');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.error);
+
+    return body;
+};
 
 class Hello extends Component {
 
@@ -8,7 +16,7 @@ class Hello extends Component {
             error: '',
             greetings: ''
         };
-        this.fetchMessage = this.fetchMessage.bind(this);
+        this.fetchMessage = props.fetchMessage? this.props.fetchMessage: fetchMessage;
     }
 
     componentDidMount() {
@@ -16,15 +24,6 @@ class Hello extends Component {
             .then(res => this.setState({ greetings: res.message.content }))
             .catch(error => { this.setState({ error:error }) });
     }
-
-    fetchMessage = async () => {
-        const response = await fetch('/hello');
-        const body = await response.json();
-
-        if (response.status !== 200) throw Error(body.error);
-
-        return body;
-    };
 
     render() {
         return (
