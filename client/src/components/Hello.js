@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-let fetchMessage = async function() {
-    const response = await fetch('/hello');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.error);
-
-    return body;
-};
+import {
+    fetchMessage
+} from '../services';
 
 class Hello extends Component {
 
@@ -16,7 +11,7 @@ class Hello extends Component {
             error: '',
             greetings: ''
         };
-        this.fetchMessage = props.fetchMessage? this.props.fetchMessage: fetchMessage;
+        this.fetchMessage = props.fetchMessage? props.fetchMessage: fetchMessage.default;
     }
 
     componentDidMount() {

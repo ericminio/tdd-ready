@@ -1,9 +1,9 @@
-require('./support/enzyme.setup');
+require('../support/enzyme.setup');
 
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import Hello from '../src/components/Hello';
+import Hello from '../../src/components/Hello';
 import { Promise } from 'yop-promises';
 
 describe('Hello', ()=> {
