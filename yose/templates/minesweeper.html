@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
+        
+        <script src="{{ url_for('static', filename='grid.js') }}"></script>              
+        <link rel="stylesheet" href="{{ url_for('static', filename='grid.css') }}">
+    </head>
+    <body>
+        <div id="app">
+            <label id="title">[[title]]</label>
+            <grid v-bind:size="8" ref="board"></grid>
+        </div>
+
+        <script>            
+            var app = new Vue({
+                el: '#app',
+                delimiters: [ '[[', ']]' ],
+                data: {
+                    title: 'Minesweeper'
+                },
+                components: { 'grid':grid }
+            })    
+
+            load = function() {
+                app.$refs.board.digest(document);
+            }
+
+            document.grid = [
+                [ 'empty', 'bomb', 'bomb', 'empty', 'empty', 'empty', 'empty', 'empty' ],
+                [ 'bomb', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty' ],
+                [ 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty' ],
+                [ 'empty', 'bomb', 'bomb', 'empty', 'empty', 'empty', 'empty', 'bomb' ],
+                [ 'empty', 'bomb', 'empty', 'bomb', 'empty', 'empty', 'empty', 'empty' ],
+                [ 'empty', 'empty', 'empty', 'empty', 'empty', 'bomb', 'empty', 'empty' ],
+                [ 'empty', 'empty', 'empty', 'bomb', 'empty', 'bomb', 'empty', 'empty' ],
+                [ 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty' ],
+            ];
+            load();
+        </script>
+    </body>
+</html>
