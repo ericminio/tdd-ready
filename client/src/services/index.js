@@ -1,3 +1,3 @@
 module.exports = {
-    fetchMessage: require('./fetch.message')
+    fetchMessage: require('./fetch.message').default
 }

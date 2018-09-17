@@ -1,36 +1,45 @@
 require('../support/enzyme.setup');
-
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
+import { apiReturning, apiFailingWithError } from '../support/apis';
 import Hello from '../../src/components/Hello';
-import { Promise } from 'yop-promises';
 
 describe('Hello', ()=> {
 
-    let createDocument = ()=>{
-        let document = mount(<Hello
-            fetchMessage={ ()=> {
-                var p = new Promise();
-                setTimeout(()=>{
-                    p.resolve({ message:{content:'good job!'} });
-                }, 200);
-                return p;
-            }}
-        />);
-        return document;
-    };
     let document;
-    beforeEach((done)=>{
-        document = createDocument();
 
-        setTimeout(()=>{ done(); }, 300);
+    describe('when message is available', ()=>{
+
+        beforeEach((done)=>{
+            document = mount(<Hello
+                fetchMessage={apiReturning({ message:{content:'good job!'} })}
+            />);
+
+            setTimeout(()=>{ done(); }, 150);
+        });
+
+        it('displays fetched greetings', ()=>{
+            let field = document.find('#greetings').at(0);
+
+            expect(field.text()).to.equal('good job!');
+        });
     });
 
-    it('display fetched greetings', ()=>{
-        let field = document.find('#greetings').at(0);
+    describe('when an error occurs', ()=>{
 
-        expect(field.text()).to.equal('good job!');
+        beforeEach((done)=>{
+            document = mount(<Hello
+                fetchMessage={apiFailingWithError('expected') }
+            />);
+
+            setTimeout(()=>{ done(); }, 150);
+        });
+
+        it('displays fetched greetings', ()=>{
+            let field = document.find('#error').at(0);
+
+            expect(field.text()).to.equal('expected');
+        });
     });
-
 });

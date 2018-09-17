@@ -11,7 +11,7 @@ class Hello extends Component {
             error: '',
             greetings: ''
         };
-        this.fetchMessage = props.fetchMessage? props.fetchMessage: fetchMessage.default;
+        this.fetchMessage = props.fetchMessage? props.fetchMessage: fetchMessage;
     }
 
     componentDidMount() {
