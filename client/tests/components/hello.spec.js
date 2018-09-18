@@ -12,7 +12,7 @@ describe('Hello', ()=> {
             fetchMessage={apiReturning({ message:{content:'good job!'} })}
         />);
         setTimeout(()=>{
-            let field = document.find('#greetings').at(0);
+            let field = document.find('#greetings');
 
             expect(field.text()).to.equal('good job!');
             done();
@@ -24,7 +24,7 @@ describe('Hello', ()=> {
             fetchMessage={apiFailingWithError('expected')}
         />);
         setTimeout(()=>{
-            let field = document.find('#error').at(0);
+            let field = document.find('#error');
 
             expect(field.text()).to.equal('expected');
             done();
