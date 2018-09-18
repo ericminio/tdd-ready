@@ -7,39 +7,27 @@ import Hello from '../../src/components/Hello';
 
 describe('Hello', ()=> {
 
-    let document;
-
-    describe('when message is available', ()=>{
-
-        beforeEach((done)=>{
-            document = mount(<Hello
-                fetchMessage={apiReturning({ message:{content:'good job!'} })}
-            />);
-
-            setTimeout(()=>{ done(); }, 150);
-        });
-
-        it('displays fetched greetings', ()=>{
+    it('displays fetched greetings', (done)=>{
+        let document = mount(<Hello
+            fetchMessage={apiReturning({ message:{content:'good job!'} })}
+        />);
+        setTimeout(()=>{
             let field = document.find('#greetings').at(0);
 
             expect(field.text()).to.equal('good job!');
-        });
+            done();
+        }, 150);
     });
 
-    describe('when an error occurs', ()=>{
-
-        beforeEach((done)=>{
-            document = mount(<Hello
-                fetchMessage={apiFailingWithError('expected') }
-            />);
-
-            setTimeout(()=>{ done(); }, 150);
-        });
-
-        it('displays the error', ()=>{
+    it('displays the error when an error occurs', (done)=>{
+        let document = mount(<Hello
+            fetchMessage={apiFailingWithError('expected')}
+        />);
+        setTimeout(()=>{
             let field = document.find('#error').at(0);
 
             expect(field.text()).to.equal('expected');
-        });
+            done();
+        }, 150);
     });
 });
