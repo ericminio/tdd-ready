@@ -36,7 +36,7 @@ describe('Hello', ()=> {
             setTimeout(()=>{ done(); }, 150);
         });
 
-        it('displays fetched greetings', ()=>{
+        it('displays the error', ()=>{
             let field = document.find('#error').at(0);
 
             expect(field.text()).to.equal('expected');
