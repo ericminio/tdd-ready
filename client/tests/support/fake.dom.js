@@ -1,11 +1,9 @@
 import { JSDOM } from 'jsdom';
-global.window = new JSDOM('<!doctype html><html><body></body></html>', {
-  url: "http://localhost",
-}).window;
+
+global.window = new JSDOM('', { url: "http://localhost" }).window;
 global.document = global.window.document;
 
 let exposedProperties = ['window', 'navigator', 'document'];
-
 Object.keys(global.window).forEach((property) => {
   if (typeof global[property] === 'undefined') {
     exposedProperties.push(property);

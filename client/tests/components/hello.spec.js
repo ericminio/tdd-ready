@@ -1,8 +1,6 @@
-require('../support/enzyme.setup');
-import React from 'react';
-import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { mount, expect } from '../support/enzyme.setup';
 import { apiReturning, apiFailingWithError } from '../support/apis';
+import React from 'react';
 import Hello from '../../src/components/Hello';
 
 describe('Hello', ()=> {
