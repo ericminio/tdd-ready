@@ -21,4 +21,4 @@ def verify_greetings(context, expected):
 @then('I see no error')
 def verify__no_error(context):
     value = context.browser.find_element_by_id('error').text
-    assert value == ''
+    assert_that(value, equal_to(''))

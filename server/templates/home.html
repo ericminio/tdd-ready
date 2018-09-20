@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <div id="message">[[greetings]]</div>
-        <div id="error"></div>
+        <div id="error">[[error]]</div>
     </div>
 
     <script>
@@ -18,14 +18,26 @@
             el: '#app',
             delimiters: [ '[[', ']]' ],
             data: {
-                greetings: ''
+                greetings: null,
+                error: null
             },
             created () {
                 this.fetchData();
             },
             methods: {
                 fetchData() {
-                    this.greetings = 'Hello world';
+                    let self = this;
+                    fetch(window.location.origin + '/hello')
+                        .then(function(response) {
+                            if (!response.ok) {
+                                self.error = response.status + ':' + response.statusText;
+                            } else {
+                                return response.json();
+                            }
+                        })
+                        .then(function(body) {
+                            self.greetings = body.message;
+                        });
                 }
             }
         });
