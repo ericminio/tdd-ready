@@ -11,6 +11,7 @@ def clean_database(context):
     with psycopg2.connect(host='localhost',dbname=database, user=user, password=password) as connection:
         with connection.cursor() as cursor:
             try:
+                cursor.execute('create table if not exists message(content varchar(50));')
                 cursor.execute('TRUNCATE TABLE message;')
             except Exception, e:
                 print e
