@@ -1,4 +1,5 @@
 from behave import fixture, given, when, then, step
+from hamcrest import *
 
 @given('Database is clean')
 def clean_database(context):
@@ -15,7 +16,7 @@ def request_decomposition(context):
 @then('I see the greetings "{expected}"')
 def verify_greetings(context, expected):
     value = context.browser.find_element_by_id('message').text
-    assert value == expected
+    assert_that(value, equal_to(expected))
 
 @then('I see no error')
 def verify__no_error(context):
