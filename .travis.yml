@@ -11,13 +11,8 @@ install:
   - pip install -r requirements-test.txt
   - npm install
 env:
-  - MOZ_HEADLESS=1
-  - PGUSER=postgres
-  - PGPASSWORD=
-  - PGDATABASE=tdd-ready
+  - MOZ_HEADLESS=1 PGUSER=postgres PGPASSWORD= PGDATABASE=postgres
 addons:
   firefox: latest
-before_script:
-  - psql -c 'create database tdd-ready;' -U postgres
 script:
   - xvfb-run fab test
