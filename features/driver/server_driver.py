@@ -2,7 +2,7 @@ import socket
 import subprocess
 import time
 
-from test.features.driver.ip_port_in_use import IpPortInUse
+from ip_port_in_use import IpPortInUse
 
 
 class ServerDriver(object):
