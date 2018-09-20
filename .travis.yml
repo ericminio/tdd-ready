@@ -3,6 +3,8 @@ python:
   - "2.7"
 node_js:
   - "8.9.1"
+services:
+  - postgresql
 install:
   - pip install 'fabric<2.0'
   - pip install -r requirements.txt
@@ -10,7 +12,12 @@ install:
   - npm install
 env:
   - MOZ_HEADLESS=1
+  - PGUSER=postgres
+  - PGPASSWORD=
+  - PGDATABASE=tdd-ready
 addons:
   firefox: latest
+before_script:
+  - psql -c 'create database tdd-ready;' -U postgres
 script:
   - xvfb-run fab test
