@@ -18,7 +18,15 @@
             el: '#app',
             delimiters: [ '[[', ']]' ],
             data: {
-                greetings: 'Hello world'
+                greetings: ''
+            },
+            created () {
+                this.fetchData();
+            },
+            methods: {
+                fetchData() {
+                    this.greetings = 'Hello world';
+                }
             }
         });
     </script>
