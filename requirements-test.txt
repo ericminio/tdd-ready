@@ -4,3 +4,4 @@ nose-testconfig==0.9
 requests==2.0.1
 splinter==0.9.0
 behave==1.2.6
+pytest==3.7.3
