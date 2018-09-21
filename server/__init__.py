@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template, make_response, jsonify
-import os
-import psycopg2
+from sql.postgres import Postgres
 
 app = Flask(__name__)
 
@@ -11,20 +10,14 @@ def index():
 
 @app.route('/hello')
 def hello():
-    database = os.environ['PGDATABASE']
-    user = os.environ['PGUSER']
-    password = os.environ['PGPASSWORD']
-    with psycopg2.connect(host='localhost',dbname=database, user=user, password=password) as connection:
-        with connection.cursor() as cursor:
-            try:
-                cursor.execute('SELECT content FROM message;')
-                (content, ) = cursor.fetchone()
-            except Exception, e:
-                print e
-                raise e
+    try:
+        (content, ) = Postgres().selectFirst('SELECT content FROM message;')
+    except Exception, e:
+        print e
+        raise e
 
-            return make_response(jsonify(
-                {
-                    'message': content
-                }
-            ))
+    return make_response(jsonify(
+        {
+            'message': content
+        }
+    ))
