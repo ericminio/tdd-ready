@@ -4,7 +4,7 @@ class MigrateDatabase(object):
 
     def now(self):
         try:
-            Postgres().execute('create table if not exists message(content varchar(50));')
+            Postgres().execute(open('server/sql/1.create.table.message.sql', 'r').read())
         except Exception, e:
             print e
             raise e
