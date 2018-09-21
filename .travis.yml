@@ -16,3 +16,4 @@ addons:
   firefox: latest
 script:
   - xvfb-run fab test
+  - pytest
