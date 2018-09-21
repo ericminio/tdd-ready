@@ -1,7 +1,9 @@
 from flask import Flask
 from flask import render_template, make_response, jsonify
 from sql.postgres import Postgres
+from migrate_database import MigrateDatabase
 
+MigrateDatabase().now()
 app = Flask(__name__)
 
 @app.route('/')

@@ -5,7 +5,6 @@ from server.sql.postgres import Postgres
 @given('Database is clean')
 def clean_database(context):
     try:
-        Postgres().execute('create table if not exists message(content varchar(50));')
         Postgres().execute('truncate table message;')
     except Exception, e:
         print e
