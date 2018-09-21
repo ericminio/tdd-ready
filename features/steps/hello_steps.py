@@ -1,35 +1,24 @@
 from behave import fixture, given, when, then, step
 from hamcrest import *
-import os
-import psycopg2
+from server.sql.postgres import Postgres
 
 @given('Database is clean')
 def clean_database(context):
-    database = os.environ['PGDATABASE']
-    user = os.environ['PGUSER']
-    password = os.environ['PGPASSWORD']
-    with psycopg2.connect(host='localhost',dbname=database, user=user, password=password) as connection:
-        with connection.cursor() as cursor:
-            try:
-                cursor.execute('create table if not exists message(content varchar(50));')
-                cursor.execute('TRUNCATE TABLE message;')
-            except Exception, e:
-                print e
-                raise e
+    try:
+        Postgres().execute('create table if not exists message(content varchar(50));')
+        Postgres().execute('truncate table message;')
+    except Exception, e:
+        print e
+        raise e
 
 
 @given('Database is seeded with message "{content}"')
 def seed_database(context, content):
-    database = os.environ['PGDATABASE']
-    user = os.environ['PGUSER']
-    password = os.environ['PGPASSWORD']
-    with psycopg2.connect(host='localhost',dbname=database, user=user, password=password) as connection:
-        with connection.cursor() as cursor:
-            try:
-                cursor.execute('INSERT INTO message(content) values(%s);', (content,))
-            except Exception, e:
-                print e
-                raise e
+    try:
+        Postgres().execute('INSERT INTO message(content) values(%s);', (content,))
+    except Exception, e:
+        print e
+        raise e
 
 @when('I access the home page')
 def request_decomposition(context):
