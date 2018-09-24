@@ -17,3 +17,4 @@ addons:
 script:
   - xvfb-run fab test
   - pytest
+  - npm test

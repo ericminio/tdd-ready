@@ -6,7 +6,7 @@
     "test": "features"
   },
   "scripts": {
-    "test": "fab test"
+    "test": "mocha tests/client"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
     "chai": "^4.1.2",
     "jsdom": "^12.0.0",
     "mocha": "^5.2.0"
+  },
+  "devDependencies": {
+    "yop-promises": "^1.2.0"
   }
 }

@@ -4,43 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
 </head>
 
 <body>
-    <div id="app">
-        <div id="message">[[greetings]]</div>
-        <div id="error">[[error]]</div>
-    </div>
+    <div id="app"></div>
 
+    <script src="{{ url_for('static', filename='vue-2.5.17.js') }}"></script>
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
     <script>
-        var app = new Vue({
-            el: '#app',
-            delimiters: [ '[[', ']]' ],
-            data: {
-                greetings: null,
-                error: null
-            },
-            created () {
-                this.fetchData();
-            },
-            methods: {
-                fetchData() {
-                    let self = this;
-                    fetch(window.location.origin + '/hello')
-                        .then(function(response) {
-                            if (!response.ok) {
-                                self.error = response.status + ':' + response.statusText;
-                            } else {
-                                return response.json();
-                            }
-                        })
-                        .then(function(body) {
-                            self.greetings = body.message;
-                        });
-                }
-            }
-        });
+        hello.$mount(document.getElementById('app'));
     </script>
 </body>
 

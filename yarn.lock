@@ -691,3 +691,7 @@ ws@^6.0.0:
 xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
+
+yop-promises@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/yop-promises/-/yop-promises-1.2.0.tgz#0f3c777227f76ff58640dd7a12c1e1bae04219d5"
