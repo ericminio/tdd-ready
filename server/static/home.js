@@ -16,10 +16,11 @@ let hello = new Vue({
                 if (!response.ok) {
                     this.error = response.status + ':' + response.statusText;
                 } else {
-                    response.json().then((body)=>{
-                        this.greetings = body.message;
-                    });
+                    return response.json();
                 }
+            })
+            .then((body)=>{
+                this.greetings = body.message;
             });
     },
     methods: {

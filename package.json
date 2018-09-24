@@ -24,6 +24,6 @@
     "mocha": "^5.2.0"
   },
   "devDependencies": {
-    "yop-promises": "^1.2.0"
+    "yop-promises": "^1.3.0"
   }
 }
