@@ -17,10 +17,14 @@ module.exports = {
         }, 100);
         return promise;
     },
-    apiFailingWithError: (message)=> ()=> {
+    apiFailingWithError: (code, text)=> ()=> {
         let promise = new Promise();
         setTimeout(()=>{
-            promise.reject(message);
+            promise.resolve({
+                ok: false,
+                status: code,
+                statusText: text
+            });
         }, 100);
         return promise;
     }
