@@ -21,7 +21,7 @@ def seed_database(context, content):
 
 @when('I access the home page')
 def request_decomposition(context):
-    context.browser.get('http://localhost:5000')
+    context.browser.get('http://localhost:' + str(context.server_port))
 
 @then('I see the greetings "{expected}"')
 def verify_greetings(context, expected):
