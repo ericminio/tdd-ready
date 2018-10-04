@@ -1,0 +1,9 @@
+-r prod.txt
+
+PyHamcrest
+nose
+nose-testconfig
+requests
+splinter
+behave
+pytest

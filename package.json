@@ -3,8 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "server:start": "python -c 'import server; server.app.run(port=8082)'",
-        
+        "server:start": "python -c 'import api; api.app.run(port=8082)'",
+        "server:test": "python -m pytest",
+
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
