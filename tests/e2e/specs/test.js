@@ -4,12 +4,16 @@ let server;
 module.exports = {
 
     before: ()=> {
-        console.log('starting server...')
-        server = exec("python -c 'import api; api.app.run(port=8082)'")
+        if (! process.env.SERVER_IS_RUNNING) {
+            console.log('starting api server...')
+            server = exec("python -c 'import api; api.app.run(port=8082)'")
+        }
     },
     after: ()=> {
-        console.log('stopping server...')
-        server.kill('SIGKILL')
+        if (server) {
+            console.log('stopping api server...')
+            server.kill('SIGKILL')
+        }
     },
     'default e2e tests': browser => {
         browser
