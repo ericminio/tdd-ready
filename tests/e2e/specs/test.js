@@ -9,7 +9,7 @@ module.exports = {
     },
     after: ()=> {
         console.log('stopping server...')
-        server.kill('SIGHUP')
+        server.kill('SIGKILL')
     },
     'default e2e tests': browser => {
         browser
