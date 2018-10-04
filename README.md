@@ -1,3 +1,5 @@
+-pc comes for *politically correct*
+
 [![Build Status](https://travis-ci.org/ericminio/tdd-ready.svg?branch=python-flask-vuejs-postgres)](https://travis-ci.org/ericminio/tdd-ready)
 
 ## run tests
