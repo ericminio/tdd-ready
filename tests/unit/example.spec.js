@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import Vue from 'vue'
 import HelloWorld from '@/components/HelloWorld.vue'
-import { apiReturning, apiFailingWithError } from '../support/apis'
+import { apiReturning, apiFailingWithError } from './support/apis'
 
 describe('HelloWorld.vue', () => {
 

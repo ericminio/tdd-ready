@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run server:test
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run test:e2e
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/opt/sqlite/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
@@ -7668,9 +7668,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 2
+  Exit code: 1
   Command: sh
-  Arguments: -c python -m pytest
+  Arguments: -c vue-cli-service test:e2e
   Directory: /Users/ericmignot/dev/tdd-ready/python-flask-vuejs-postgres-pc
   Output:
   

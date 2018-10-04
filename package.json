@@ -4,13 +4,13 @@
     "private": true,
     "scripts": {
         "server:start": "python -c 'import api; api.app.run(port=8082)'",
-        "server:test": "python -m pytest",
-
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
+
+        "test:server": "python -m pytest",
         "test:e2e": "vue-cli-service test:e2e",
-        "test:unit": "vue-cli-service test:unit"
+        "test:vue": "vue-cli-service test:unit"
     },
     "dependencies": {
         "vue": "^2.5.17"
