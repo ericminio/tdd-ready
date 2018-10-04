@@ -5,32 +5,32 @@
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Start server
+```
+yarn run server:start
+```
+
+### Start app
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies app for production
 ```
 yarn run build
 ```
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your end-to-end tests
+### Run end-to-end tests
 ```
 yarn run test:e2e
 ```
 
-### Run your unit tests
+### Run server tests
+```
+yarn run test:server
+```
+
+### Run Vue tests
 ```
 yarn run test:unit
 ```
