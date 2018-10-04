@@ -6,15 +6,13 @@ node_js:
 services:
   - postgresql
 install:
-  - pip install 'fabric<2.0'
-  - pip install -r requirements.txt
-  - pip install -r requirements-test.txt
+  - pip install -r api/requirements/dev.txt
   - npm install
 env:
-  - MOZ_HEADLESS=1 PGUSER=postgres PGPASSWORD= PGDATABASE=postgres
+  - MOZ_HEADLESS=1
 addons:
   firefox: latest
 script:
-  - xvfb-run fab test
-  - pytest
-  - npm test
+  - npm run test:server
+  - npm run test:unit
+  - npm run test:e2e2
