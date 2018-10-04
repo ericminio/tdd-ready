@@ -15,4 +15,4 @@ addons:
 script:
   - npm run test:server
   - npm run test:unit
-  - npm run test:e2e2
+  - npm run test:e2e
