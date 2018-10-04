@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         fetchData() {
-            return fetch(window.location.origin + '/hello');
+            return fetch(process.env.VUE_APP_API_URL + '/hello');
         }
     }
 }
