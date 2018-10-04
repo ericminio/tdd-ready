@@ -1,4 +1,6 @@
-# learning-vue
+-pc for *politically correct*
+
+[![Build Status](https://travis-ci.org/ericminio/tdd-ready.svg?branch=python-flask-vuejs-postgres-pc)](https://travis-ci.org/ericminio/tdd-ready)
 
 ## Project setup
 ```
