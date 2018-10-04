@@ -1,7 +1,36 @@
--pc comes for *politically correct*
+# learning-vue
 
-[![Build Status](https://travis-ci.org/ericminio/tdd-ready.svg?branch=python-flask-vuejs-postgres)](https://travis-ci.org/ericminio/tdd-ready)
+## Project setup
+```
+yarn install
+```
 
-## run tests
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
 
-export PATH=$PATH:./features/geckodriver/mac; behave features
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Run your tests
+```
+yarn run test
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Run your end-to-end tests
+```
+yarn run test:e2e
+```
+
+### Run your unit tests
+```
+yarn run test:unit
+```
