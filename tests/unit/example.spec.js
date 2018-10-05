@@ -22,7 +22,7 @@ describe('HelloWorld.vue', () => {
         setTimeout(() => {
             expect(vm.$el.querySelector('#title').textContent).to.equal('this fetched message')
             done()
-        }, 300)
+        }, 30)
     })
 
     it('displays error message if any', (done)=>{
@@ -33,6 +33,6 @@ describe('HelloWorld.vue', () => {
         setTimeout(() => {
             expect(vm.$el.querySelector('#title').textContent).to.equal('too bad')
             done()
-        }, 300)
+        }, 30)
     });
 })
