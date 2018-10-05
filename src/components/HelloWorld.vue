@@ -8,8 +8,8 @@
 import { mapState, mapActions } from 'vuex'
 export default {
     name: 'HelloWorld',
-    computed: mapState(['message']),
-    methods: mapActions(['fetchMessage']),
+    computed: mapState('home', ['message']),
+    methods: mapActions('home', ['fetchMessage']),
 
     mounted: function() {
         this.fetchMessage()
