@@ -1,7 +1,8 @@
 import { expect } from 'chai'
 import Vue from 'vue'
+import axios from 'axios';
+import sinon from 'sinon';
 import HelloWorld from '@/components/HelloWorld.vue'
-import { apiReturning, apiFailingWithError } from './support/apis'
 
 describe('HelloWorld.vue', () => {
 
@@ -9,21 +10,14 @@ describe('HelloWorld.vue', () => {
         expect(HelloWorld.data().message).to.equal('loading...')
     })
 
-    it('fetches the message to be displayed', (done) => {
-        let component = new Vue(HelloWorld)
-        component.fetchData = apiReturning({message:'Hello Vue'})
-        const vm = component.$mount()
-
-        setTimeout(() => {
-            expect(vm.message).to.equal('Hello Vue')
-            done()
-        }, 300)
-    })
+    let sandbox;
+    beforeEach(() => sandbox = sinon.createSandbox())
+    afterEach(() => sandbox.restore())
 
     it('displays the fetched message', (done) => {
-        let component = new Vue(HelloWorld)
-        component.fetchData = apiReturning({message:'this fetched message'})
-        const vm = component.$mount()
+        const resolved = new Promise((resolve) => resolve({ data: { message:'this fetched message'} }));
+        sandbox.stub(axios, 'get').returns(resolved);
+        const vm = new Vue(HelloWorld).$mount()
 
         setTimeout(() => {
             expect(vm.$el.querySelector('#title').textContent).to.equal('this fetched message')
@@ -32,12 +26,12 @@ describe('HelloWorld.vue', () => {
     })
 
     it('displays error message if any', (done)=>{
-        let component = new Vue(HelloWorld)
-        component.fetchData = apiFailingWithError(500, 'stop that!')
-        const vm = component.$mount()
+        const rejected = new Promise((resolve, reject) => reject('too bad'));
+        sandbox.stub(axios, 'get').returns(rejected);
+        const vm = new Vue(HelloWorld).$mount()
 
         setTimeout(() => {
-            expect(vm.$el.querySelector('#title').textContent).to.equal('500:stop that!')
+            expect(vm.$el.querySelector('#title').textContent).to.equal('too bad')
             done()
         }, 300)
     });

@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: 'HelloWorld',
     data: function() {
@@ -13,22 +14,13 @@ export default {
         }
     },
     mounted: function() {
-        this.fetchData()
-            .then((response)=> {
-                if (!response.ok) {
-                    this.message = response.status + ':' + response.statusText;
-                } else {
-                    return response.json();
-                }
+        axios.get(process.env.VUE_APP_API_URL + '/hello')
+            .then((response)=>{
+                this.message = response.data.message;
             })
-            .then((body)=>{
-                this.message = body.message;
-            });
-    },
-    methods: {
-        fetchData() {
-            return fetch(process.env.VUE_APP_API_URL + '/hello');
-        }
+            .catch((error)=>{
+                this.message = error;
+            })
     }
 }
 </script>
