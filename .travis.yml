@@ -15,5 +15,5 @@ before_script:
   - python -c 'import api; api.app.run(port=8082)' &
 script:
   - npm run test:server
-  - npm run test:unit
+  - npm run test:vue
   - xvfb-run npm run test:e2e-assuming-server-is-running
