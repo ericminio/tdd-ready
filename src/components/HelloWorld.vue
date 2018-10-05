@@ -5,22 +5,14 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapState, mapActions } from 'vuex'
 export default {
     name: 'HelloWorld',
-    data: function() {
-        return {
-            message: 'loading...'
-        }
-    },
+    computed: mapState(['message']),
+    methods: mapActions(['fetchMessage']),
+
     mounted: function() {
-        axios.get(process.env.VUE_APP_API_URL + '/hello')
-            .then((response)=>{
-                this.message = response.data.message;
-            })
-            .catch((error)=>{
-                this.message = error;
-            })
+        this.fetchMessage()
     }
 }
 </script>
