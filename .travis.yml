@@ -1,4 +1,4 @@
 # safelist
 branches:
   only:
-  -  node-react-postgres
+  -  standalone-html-js-css

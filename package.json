@@ -4,7 +4,7 @@
   "description": "explore the branches",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js  -r tests/external/steps --exit tests/external"
+    "test": "./node_modules/.bin/cucumber-js  -r tests/external/steps --exit tests/external"
   },
   "repository": {
     "type": "git",
