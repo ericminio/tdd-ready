@@ -1,7 +1,6 @@
 <template>
 <div class="hello">
     <h1 id="title">{{ message }}</h1>
-    <div>this greetings was fetched from the database</div>
 </div>
 </template>
 
