@@ -1,0 +1,22 @@
+<html>
+    <meta charset="utf-8" />
+<head>
+    <link rel="stylesheet" href="static/app.css">
+    <script src="static/app.js"></script>
+    <script src="static/quote.js"></script>
+</head>
+<body>
+    <div class="title">
+        Welcome
+    </div>
+    <div id="greetings"></div>
+
+    <script>
+        setTimeout(function(){
+            let data = digest(quote);
+            let greetings = extractGreetings(data)
+            display(greetings, document)
+        }, 100);
+    </script>
+</body>
+</html>

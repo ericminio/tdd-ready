@@ -1,0 +1,7 @@
+/client/build
+/client/node_modules
+node_modules
+.DS_Store
+.idea/
+yarn.lock
+yarn-error.log

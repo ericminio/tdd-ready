@@ -1,0 +1,23 @@
+{
+  "name": "standalone-html-js-css",
+  "version": "1.0.0",
+  "description": "explore the branches",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js  -r tests/external/steps --exit tests/external"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericminio/tdd-ready.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericminio/tdd-ready/issues"
+  },
+  "homepage": "https://github.com/ericminio/tdd-ready#readme",
+  "devDependencies": {
+    "cucumber": "^5.0.2",
+    "zombie": "^6.1.3"
+  }
+}

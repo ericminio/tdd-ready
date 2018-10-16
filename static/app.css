@@ -1,0 +1,18 @@
+body, input, select, button {
+    font-size: 33px;
+}
+select {
+    width: 250px;
+}
+input {
+    width: 200px;
+}
+input.small {
+    width: 100px
+}
+
+.title {
+    margin:10px;
+    padding:10px;
+    text-align: center;
+}
