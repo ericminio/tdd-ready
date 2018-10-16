@@ -1,3 +1,3 @@
-let display = function(greetings, document) {
-    document.getElementById('greetings').innerHTML = greetings;
+let display = function(data, document) {
+    document.getElementById('greetings').innerHTML = data.greetings + ' ' + data.extension;
 }

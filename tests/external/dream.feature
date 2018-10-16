@@ -7,4 +7,5 @@ Scenario: will help you push the limits
             You can decide what to do today
         """
     When I access the home page
-    Then I see the greetings "You can decide what to do today"
+    When I enter the additional input "with love"
+    Then I see the greetings "You can decide what to do today with love"

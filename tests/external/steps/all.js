@@ -30,6 +30,10 @@ Given('the inspiring quote:', function (value) {
 When('I access the home page', (done) => {
     browser.visit('http://localhost:' + server.port, done);
 });
+When('I enter the additional input {string}', function (value, done) {
+    browser.fill('#what', value);
+    browser.click('#go', done);
+});
 
 Then('I see the greetings {string}', (message) => {
     browser.assert.text('#greetings', message);

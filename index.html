@@ -6,19 +6,24 @@
     <script src="static/play.js"></script>
     <script src="static/render.js"></script>
     <script src="static/quote.js"></script>
+
+    <script>
+        doIt = function(document) {
+            let source = digest(quote);
+            let data = extractDataFrom(source);
+            extend(data, document);
+            display(data, document);
+        }
+    </script>
 </head>
 <body>
     <div class="title">
         Welcome
     </div>
+    <div>
+        <input id="what" />
+        <button id="go" onclick="doIt(document)">go</button>
+    </div>
     <div id="greetings"></div>
-
-    <script>
-        setTimeout(function(){
-            let data = digest(quote);
-            let greetings = extractGreetings(data)
-            display(greetings, document)
-        }, 100);
-    </script>
 </body>
 </html>
