@@ -4,7 +4,13 @@
 
 ## Openshift
 
+One way to deploy deploy:
+* for the api, build and deploy a python container based on this repo
+* for the ui, build and deploy a nodejs container based on this repo with the env variable (build config):
 
+VUE_APP_API_URL set with the api
+
+DEV_MODE = true
 
 ## Project setup
 ```
