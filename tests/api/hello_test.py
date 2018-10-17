@@ -1,6 +1,6 @@
 from hamcrest import *
 from flask import json
-from api import app
+from api.server import app
 
 def test_hello_endpoint():
     test_client = app.test_client()

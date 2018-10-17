@@ -1,2 +1,2 @@
 # Just installs the production requirements.
--r api/requirements/prod.txt
+-r requirements/prod.txt
