@@ -2,37 +2,41 @@
 
 [![Build Status](https://travis-ci.org/ericminio/tdd-ready.svg?branch=python-flask-vuejs-postgres-pc)](https://travis-ci.org/ericminio/tdd-ready)
 
+## Openshift
+
+
+
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
 ### Start server
 ```
-yarn run server:start
+npm run server:start
 ```
 
 ### Start app
 ```
-yarn run serve
+npm run client:start
 ```
 
 ### Compiles and minifies app for production
 ```
-yarn run build
+npm run build
 ```
 
 ### Run end-to-end tests
 ```
-yarn run test:e2e
+npm run test:e2e
 ```
 
 ### Run server tests
 ```
-yarn run test:server
+npm run test:server
 ```
 
 ### Run Vue tests
 ```
-yarn run test:unit
+npm run test:vue
 ```
