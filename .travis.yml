@@ -12,7 +12,7 @@ addons:
 before_install:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 before_script:
-  - python -c 'import api; api.app.run(port=8082)' &
+  - python -c 'from api import server; server.app.run(port=8082)' &
 script:
   - npm run test:server
   - npm run test:vue
